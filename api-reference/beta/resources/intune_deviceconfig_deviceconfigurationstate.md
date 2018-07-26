@@ -1,13 +1,13 @@
 ﻿# deviceConfigurationState resource type
 
-> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+> **Important:** APIs under the / beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Device Configuration State for a given device.
 ## Methods
 |Method|Return Type|Description|
-|---|---|---|
+|:---|:---|:---|
 |[List deviceConfigurationStates](../api/intune_deviceconfig_deviceconfigurationstate_list.md)|[deviceConfigurationState](../resources/intune_deviceconfig_deviceconfigurationstate.md) collection|List properties and relationships of the [deviceConfigurationState](../resources/intune_deviceconfig_deviceconfigurationstate.md) objects.|
 |[Get deviceConfigurationState](../api/intune_deviceconfig_deviceconfigurationstate_get.md)|[deviceConfigurationState](../resources/intune_deviceconfig_deviceconfigurationstate.md)|Read properties and relationships of the [deviceConfigurationState](../resources/intune_deviceconfig_deviceconfigurationstate.md) object.|
 |[Create deviceConfigurationState](../api/intune_deviceconfig_deviceconfigurationstate_create.md)|[deviceConfigurationState](../resources/intune_deviceconfig_deviceconfigurationstate.md)|Create a new [deviceConfigurationState](../resources/intune_deviceconfig_deviceconfigurationstate.md) object.|
@@ -16,14 +16,16 @@ Device Configuration State for a given device.
 
 ## Properties
 |Property|Type|Description|
-|---|---|---|
+|:---|:---|:---|
 |id|String|Key of the entity.|
-|settingStates|[deviceConfigurationSettingState](../resources/intune_deviceconfig_deviceconfigurationsettingstate.md) collection|Not yet documented|
+|settingStates|[deviceConfigurationSettingState](../resources/intune_deviceconfig_deviceconfigurationsettingstate.md) collection|**TODO: Add description.**|
 |displayName|String|The name of the policy for this policyBase|
 |version|Int32|The version of the policy|
-|platformType|String|Platform type that the policy applies to Possible values are: `android`, `androidForWork`, `iOS`, `macOS`, `windowsPhone81`, `windows81AndLater`, `windows10AndLater`, `all`.|
-|state|String|The compliance state of the policy Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
+|platformType|[policyPlatformType](../resources/intune_deviceconfig_policyplatformtype.md)|Platform type that the policy applies to. Possible values are: `android`, `androidForWork`, `iOS`, `macOS`, `windowsPhone81`, `windows81AndLater`, `windows10AndLater`, `androidWorkProfile`, `all`.|
+|state|[complianceStatus](../resources/intune_shared_compliancestatus.md)|The compliance state of the policy. Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
 |settingCount|Int32|Count of how many setting a policy holds|
+|userId|String|User unique identifier, must be Guid|
+|userPrincipalName|String|User Principal Name|
 
 ## Relationships
 None
@@ -35,7 +37,7 @@ Here is a JSON representation of the resource.
   "@odata.type": "microsoft.graph.deviceConfigurationState"
 }
 -->
-```json
+``` json
 {
   "@odata.type": "#microsoft.graph.deviceConfigurationState",
   "id": "String (identifier)",
@@ -66,9 +68,10 @@ Here is a JSON representation of the resource.
   "version": 1024,
   "platformType": "String",
   "state": "String",
-  "settingCount": 1024
+  "settingCount": 1024,
+  "userId": "String",
+  "userPrincipalName": "String"
 }
 ```
-
 
 

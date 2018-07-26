@@ -6,30 +6,36 @@
 
 Create a new [windowsPhone81CompliancePolicy](../resources/intune_deviceconfig_windowsphone81compliancepolicy.md) object.
 ## Prerequisites
-One of the following [permission scopes](https://developer.microsoft.com/en-us/graph/docs/authorization/permission_scopes) is required to execute this API:
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
-*DeviceManagementConfiguration.ReadWrite.All*
+|Permission type|Permissions (from most to least privileged)|
+|:---|:---|
+|Delegated (work or school account)|DeviceManagementConfiguration.ReadWrite.All|
+|Delegated (personal Microsoft account)|Not supported.|
+|Application|Not supported.|
+
 ## HTTP Request
 <!-- {
   "blockType": "ignored"
 }
 -->
-```http
+``` http
 POST /deviceManagement/deviceCompliancePolicies
 ```
 
 ## Request headers
 |Header|Value|
-|---|---|
+|:---|:---|
 |Authorization|Bearer &lt;token&gt; Required.|
 |Accept|application/json|
 
 ## Request body
-In the request body, supply a JSON representation of a windowsPhone81CompliancePolicy object.
-The following table shows the properties that are required when you create a windowsPhone81CompliancePolicy.
+In the request body, supply a JSON representation for the windowsPhone81CompliancePolicy object.
+
+The following table shows the properties that are required when you create the windowsPhone81CompliancePolicy.
 
 |Property|Type|Description|
-|---|---|---|
+|:---|:---|:---|
 |id|String|Key of the entity. Inherited from [deviceCompliancePolicy](../resources/intune_deviceconfig_devicecompliancepolicy.md)|
 |createdDateTime|DateTimeOffset|DateTime the object was created. Inherited from [deviceCompliancePolicy](../resources/intune_deviceconfig_devicecompliancepolicy.md)|
 |description|String|Admin provided description of the Device Configuration. Inherited from [deviceCompliancePolicy](../resources/intune_deviceconfig_devicecompliancepolicy.md)|
@@ -41,12 +47,14 @@ The following table shows the properties that are required when you create a win
 |passwordMinimumLength|Int32|Minimum length of passwords.|
 |passwordMinutesOfInactivityBeforeLock|Int32|Minutes of inactivity before a password is required.|
 |passwordMinimumCharacterSetCount|Int32|The number of character sets required in the password.|
-|passwordRequiredType|String|The required password type. Possible values are: `deviceDefault`, `alphanumeric`, `numeric`.|
+|passwordRequiredType|[requiredPasswordType](../resources/intune_deviceconfig_requiredpasswordtype.md)|The required password type. Possible values are: `deviceDefault`, `alphanumeric`, `numeric`.|
 |passwordPreviousPasswordBlockCount|Int32|Number of previous passwords to block. Valid values 0 to 24|
 |passwordRequired|Boolean|Whether or not to require a password.|
 |osMinimumVersion|String|Minimum Windows Phone version.|
 |osMaximumVersion|String|Maximum Windows Phone version.|
 |storageRequireEncryption|Boolean|Require encryption on windows phone devices.|
+
+
 
 ## Response
 If successful, this method returns a `201 Created` response code and a [windowsPhone81CompliancePolicy](../resources/intune_deviceconfig_windowsphone81compliancepolicy.md) object in the response body.
@@ -54,7 +62,7 @@ If successful, this method returns a `201 Created` response code and a [windowsP
 ## Example
 ### Request
 Here is an example of the request.
-```http
+``` http
 POST https://graph.microsoft.com/beta/deviceManagement/deviceCompliancePolicies
 Content-type: application/json
 Content-length: 671
@@ -81,7 +89,7 @@ Content-length: 671
 
 ### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
-```http
+``` http
 HTTP/1.1 201 Created
 Content-Type: application/json
 Content-Length: 779
@@ -107,6 +115,9 @@ Content-Length: 779
   "storageRequireEncryption": true
 }
 ```
+
+
+
 
 
 

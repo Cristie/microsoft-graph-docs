@@ -3,13 +3,19 @@
 > **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Retrieve the properties and relationships of channel object.
-## Prerequisites
-One of the following **scopes** is required to execute this API: 
-*Group.ReadWrite.All; Group.Read.All*
+## Permissions
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+
+|Permission type      | Permissions (from least to most privileged)              |
+|:--------------------|:---------------------------------------------------------|
+|Delegated (work or school account) | Group.ReadWrite.All, Group.Read.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
+|Application | Not supported. |
+
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /groups/{id}/channels/{id}
+GET /teams/{id}/channels/{id}
 
 ```
 ## Optional query parameters
@@ -33,7 +39,7 @@ Here is an example of the request.
   "name": "get_channel"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/groups/{id}/channels/{id}
+GET https://graph.microsoft.com/beta/teams/{id}/channels/{id}
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
@@ -48,8 +54,8 @@ Content-type: application/json
 Content-length: 201
 
 {
-    "description": "description-value"
-    "displayName": "display-name-value"
+    "description": "description-value",
+    "displayName": "display-name-value",
     "id": "id-value"
 }
 ```

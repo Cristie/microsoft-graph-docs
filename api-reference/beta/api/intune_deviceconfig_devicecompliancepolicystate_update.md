@@ -6,37 +6,47 @@
 
 Update the properties of a [deviceCompliancePolicyState](../resources/intune_deviceconfig_devicecompliancepolicystate.md) object.
 ## Prerequisites
-One of the following [permission scopes](https://developer.microsoft.com/en-us/graph/docs/authorization/permission_scopes) is required to execute this API:
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
-*DeviceManagementConfiguration.ReadWrite.All*
+|Permission type|Permissions (from most to least privileged)|
+|:---|:---|
+|Delegated (work or school account)|**TODO: Determine scopes **|
+|Delegated (personal Microsoft account)|Not supported.|
+|Application|Not supported.|
+
 ## HTTP Request
 <!-- {
   "blockType": "ignored"
 }
 -->
-```http
-PATCH /managedDevices/{managedDevicesId}/deviceCompliancePolicyStates/{deviceCompliancePolicyStateId}
+``` http
+PATCH /deviceManagement/managedDevices/{managedDeviceId}/deviceCompliancePolicyStates/{deviceCompliancePolicyStateId}
 ```
 
 ## Request headers
 |Header|Value|
-|---|---|
+|:---|:---|
 |Authorization|Bearer &lt;token&gt; Required.|
 |Accept|application/json|
 
 ## Request body
-In the request body, supply a JSON representation of a [deviceCompliancePolicyState](../resources/intune_deviceconfig_devicecompliancepolicystate.md) object.
-The following table shows the properties that are required when you create a [deviceCompliancePolicyState](../resources/intune_deviceconfig_devicecompliancepolicystate.md).
+In the request body, supply a JSON representation for the [deviceCompliancePolicyState](../resources/intune_deviceconfig_devicecompliancepolicystate.md) object.
+
+The following table shows the properties that are required when you create the [deviceCompliancePolicyState](../resources/intune_deviceconfig_devicecompliancepolicystate.md).
 
 |Property|Type|Description|
-|---|---|---|
+|:---|:---|:---|
 |id|String|Key of the entity.|
-|settingStates|[deviceCompliancePolicySettingState](../resources/intune_deviceconfig_devicecompliancepolicysettingstate.md) collection|Not yet documented|
+|settingStates|[deviceCompliancePolicySettingState](../resources/intune_deviceconfig_devicecompliancepolicysettingstate.md) collection|**TODO: Add description.**|
 |displayName|String|The name of the policy for this policyBase|
 |version|Int32|The version of the policy|
-|platformType|String|Platform type that the policy applies to Possible values are: `android`, `androidForWork`, `iOS`, `macOS`, `windowsPhone81`, `windows81AndLater`, `windows10AndLater`, `all`.|
-|state|String|The compliance state of the policy Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
+|platformType|[policyPlatformType](../resources/intune_deviceconfig_policyplatformtype.md)|Platform type that the policy applies to. Possible values are: `android`, `androidForWork`, `iOS`, `macOS`, `windowsPhone81`, `windows81AndLater`, `windows10AndLater`, `androidWorkProfile`, `all`.|
+|state|[complianceStatus](../resources/intune_shared_compliancestatus.md)|The compliance state of the policy. Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
 |settingCount|Int32|Count of how many setting a policy holds|
+|userId|String|User unique identifier, must be Guid|
+|userPrincipalName|String|User Principal Name|
+
+
 
 ## Response
 If successful, this method returns a `200 OK` response code and an updated [deviceCompliancePolicyState](../resources/intune_deviceconfig_devicecompliancepolicystate.md) object in the response body.
@@ -44,10 +54,10 @@ If successful, this method returns a `200 OK` response code and an updated [devi
 ## Example
 ### Request
 Here is an example of the request.
-```http
-PATCH https://graph.microsoft.com/beta/managedDevices/{managedDevicesId}/deviceCompliancePolicyStates/{deviceCompliancePolicyStateId}
+``` http
+PATCH https://graph.microsoft.com/beta/deviceManagement/managedDevices/{managedDeviceId}/deviceCompliancePolicyStates/{deviceCompliancePolicyStateId}
 Content-type: application/json
-Content-length: 918
+Content-length: 1001
 
 {
   "settingStates": [
@@ -77,16 +87,18 @@ Content-length: 918
   "version": 7,
   "platformType": "androidForWork",
   "state": "notApplicable",
-  "settingCount": 12
+  "settingCount": 12,
+  "userId": "User Id value",
+  "userPrincipalName": "User Principal Name value"
 }
 ```
 
 ### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
-```http
+``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1033
+Content-Length: 1116
 
 {
   "@odata.type": "#microsoft.graph.deviceCompliancePolicyState",
@@ -118,9 +130,10 @@ Content-Length: 1033
   "version": 7,
   "platformType": "androidForWork",
   "state": "notApplicable",
-  "settingCount": 12
+  "settingCount": 12,
+  "userId": "User Id value",
+  "userPrincipalName": "User Principal Name value"
 }
 ```
-
 
 

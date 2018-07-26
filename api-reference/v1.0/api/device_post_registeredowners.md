@@ -14,7 +14,7 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /devices/{id}/registeredOwners
+POST /devices/{id}/registeredOwners/$ref
 
 ```
 ## Request headers
@@ -27,7 +27,7 @@ In the request body, supply a JSON representation of [directoryObject](../resour
 
 ## Response
 
-If successful, this method returns `201, Created` response code and [directoryObject](../resources/directoryobject.md) object in the response body.
+If successful, this method returns `201 Created` response code and [directoryObject](../resources/directoryobject.md) object in the response body.
 
 ## Example
 ##### Request

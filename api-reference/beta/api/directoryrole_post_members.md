@@ -3,12 +3,19 @@
 > **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Use this API to create a new directory role member.
-## Prerequisites
-The following **scope** is required to execute this API: *Directory.AccessAsUser.All*
+## Permissions
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+
+|Permission type      | Permissions (from least to most privileged)              |
+|:--------------------|:---------------------------------------------------------|
+|Delegated (work or school account) | Directory.AccessAsUser.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
+|Application | Not supported. |
+
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /directoryRoles/{id}/members
+POST /directoryRoles/{id}/members/$ref
 
 ```
 ## Request headers
@@ -21,7 +28,7 @@ In the request body, supply a JSON representation of [directoryObject](../resour
 
 ## Response
 
-If successful, this method returns `201, Created` response code and [directoryObject](../resources/directoryobject.md) object in the response body.
+If successful, this method returns `201 Created` response code and [directoryObject](../resources/directoryobject.md) object in the response body.
 
 ## Example
 ##### Request
@@ -31,7 +38,7 @@ Here is an example of the request.
   "name": "create_directoryobject_from_directoryrole"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/directoryRoles/{id}/members
+POST https://graph.microsoft.com/beta/directoryRoles/{id}/members/$ref
 Content-type: application/json
 Content-length: 30
 

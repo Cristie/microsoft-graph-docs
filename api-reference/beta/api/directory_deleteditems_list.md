@@ -6,19 +6,20 @@ Retrieve a list of recently deleted items from [deleted items](../resources/dire
 
 Currently, deleted items functionality is only supported for the [group](../resources/group.md) and [user](../resources/user.md) resources.
 
-## Prerequisites
-One of the following **scopes** is required to execute this API: 
-* For users: *User.Read.All; Directory.Read.All; User.ReadWrite.All; Directory.AccessAsUser.All*
-* For groups: *Group.Read.All; Directory.Read.All; Group.ReadWrite.All; Directory.AccessAsUser.All*
+## Permissions
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+
+* For users: User.Read.All, Directory.Read.All, User.ReadWrite.All, Directory.AccessAsUser.All
+* For groups: Group.Read.All, Directory.Read.All, Group.ReadWrite.All, Directory.AccessAsUser.All
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http 
-GET /directory/deleteditems/Microsoft.Graph.Group
-GET /directory/deletedItems/Microsoft.Graph.User
+GET /directory/deleteditems/microsoft.graph.group
+GET /directory/deletedItems/microsoft.graph.user
 ```
 
-This API currently supports retrieving object types of groups (Microsoft.Graph.Group) or users (Microsoft.Graph.User) from deleted items. The type is specified as a required part of the URI. Calling GET /directory/deleteditems without a type is not supported.
+This API currently supports retrieving object types of groups (microsoft.graph.group) or users (microsoft.graph.user) from deleted items. The type is specified as a required part of the URI. Calling GET /directory/deleteditems without a type is not supported.
 
 ## Optional query parameters
 This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
@@ -43,7 +44,7 @@ If successful, this method returns a `200 OK` response code and collection of [d
   "name": "get_deleteditems"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/directory/deleteditems/Microsoft.Graph.Group
+GET https://graph.microsoft.com/beta/directory/deleteditems/microsoft.graph.group
 ```
 ##### Response
 Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.

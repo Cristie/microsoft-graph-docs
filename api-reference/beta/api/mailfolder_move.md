@@ -4,40 +4,56 @@
 
 Move a mailfolder and its contents to another mailfolder.
 
-## Prerequisites
-One of the following **scopes** is required to execute this API:
-*Mail.ReadWrite*
+## Permissions
+
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+
+| Permission type | Permissions (from least to most privileged) |
+|:----------------|:--------------------------------------------|
+|Delegated (work or school account) | Mail.ReadWrite    |
+|Delegated (personal Microsoft account) | Mail.ReadWrite    |
+|Application | Mail.ReadWrite |
+
 ## HTTP request
+
 <!-- { "blockType": "ignored" } -->
+
 ```http
 POST /me/mailFolders/{id}/move
 POST /users/{id | userPrincipalName}/mailFolders/{id}/move
 ```
+
 ## Request headers
-| Header       | Value |
-|:---------------|:--------|
-| Authorization  | Bearer {token}. Required. |
-| Content-Type  | application/json. Required. |
+
+| Header | Value |
+|:-------|:------|
+| Authorization | `Bearer {token}`. Required. |
+| Content-Type | `application/json`. Required. |
 
 ## Request body
+
 In the request body, provide a JSON object with the following parameters.
 
-| Parameter	   | Type	|Description|
-|:---------------|:--------|:----------|
-|destinationId|String|The folder ID, or the *Inbox*, *Drafts*, *SentItems*, or *DeletedItems* well-known folder name.|
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|destinationId|String|The folder ID, or a well-known folder name. For a list of supported well-known folder names, see [mailFolder resource type](../resources/mailfolder.md#well-known-folder-names).|
 
 ## Response
 
-If successful, this method returns `200, OK` response code and [MailFolder](../resources/mailfolder.md) object in the response body.
+If successful, this method returns `200 OK` response code and a [mailFolder](../resources/mailfolder.md) object in the response body.
 
 ## Example
+
 Here is an example of how to call this API.
+
 ##### Request
+
 Here is an example of the request.
 <!-- {
   "blockType": "request",
   "name": "mailfolder_move"
 }-->
+
 ```http
 POST https://graph.microsoft.com/beta/me/mailFolders/{id}/move
 Content-type: application/json
@@ -49,12 +65,16 @@ Content-length: 44
 ```
 
 ##### Response
-Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+
+Here is an example of the response.
+
+> **Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
   "@odata.type": "microsoft.graph.mailFolder"
 } -->
+
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json

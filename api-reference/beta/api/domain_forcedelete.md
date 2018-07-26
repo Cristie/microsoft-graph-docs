@@ -12,15 +12,22 @@ The following actions are performed as part of this operation:
 
 * Renames the identifierUris of applications with references to the deleted domain.
 
-* If the number of objects to be renamed is greater than 100, an error is returned.
+* If the number of objects to be renamed is greater than 1000, an error is returned.
 
 * If one of the applications to be renamed is a multi-tenant app, an error is returned.
 
 After the domain deletion completes, API operations for the deleted domain will return a 404 HTTP response code. To verify deletion of a domain, you can perform a [get domain](domain_get.md). If the domain was successfully deleted, a 404 HTTP response code will be returned in the response.
 
-## Prerequisites
+## Permissions
 
-One of the following **scopes** is required to execute this API: *Domain.ReadWrite.All* or *Directory.AccessAsUser.All*
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+
+
+|Permission type      | Permissions (from least to most privileged)              |
+|:--------------------|:---------------------------------------------------------|
+|Delegated (work or school account) | Directory.AccessAsUser.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
+|Application | Domain.ReadWrite.All |
 
 ## HTTP request
 
@@ -48,7 +55,7 @@ In the request body, provide a JSON object with the following parameters.
 
 ## Response
 
-If successful, this method returns `200, OK` response code. 
+If successful, this method returns `200 OK` response code. 
 
 ## Example
 ##### Request

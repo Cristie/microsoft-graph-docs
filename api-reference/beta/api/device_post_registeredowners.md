@@ -3,13 +3,20 @@
 > **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
 Add a user as a registered owner of the device.
-## Prerequisites
-One of the following **scopes** is required to execute this API: *Directory.ReadWrite.All* or *Directory.AccessAsUser.All*
+## Permissions
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+
+
+|Permission type      | Permissions (from least to most privileged)              |
+|:--------------------|:---------------------------------------------------------|
+|Delegated (work or school account) | Directory.ReadWrite.All, Directory.AccessAsUser.All    |
+|Delegated (personal Microsoft account) | Not supported.    |
+|Application | Directory.ReadWrite.All |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /devices/{id}/registeredOwners
+POST /devices/{id}/registeredOwners/$ref
 
 ```
 ## Request headers
@@ -22,7 +29,7 @@ In the request body, supply a JSON representation of [directoryObject](../resour
 
 ## Response
 
-If successful, this method returns `201, Created` response code and [directoryObject](../resources/directoryobject.md) object in the response body.
+If successful, this method returns `201 Created` response code and [directoryObject](../resources/directoryobject.md) object in the response body.
 
 ## Example
 ##### Request
@@ -32,7 +39,7 @@ Here is an example of the request.
   "name": "create_directoryobject_from_device"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/devices/{id}/registeredOwners
+POST https://graph.microsoft.com/beta/devices/{id}/registeredOwners/$ref
 Content-type: application/json
 Content-length: 30
 
