@@ -5,43 +5,48 @@
 > **Note:** Using the Microsoft Graph APIs to configure Intune controls and policies still requires that the Intune service is [correctly licensed](https://go.microsoft.com/fwlink/?linkid=839381) by the customer.
 
 Update the properties of a [deviceConfigurationState](../resources/intune_deviceconfig_deviceconfigurationstate.md) object.
-## Permissions
+## Prerequisites
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
 
-|Permission type      | Permissions (from least to most privileged)              |
-|:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | DeviceManagementConfiguration.ReadWrite.All    |
-|Delegated (personal Microsoft account) | Not supported.    |
-|Application | Not supported. |
+|Permission type|Permissions (from most to least privileged)|
+|:---|:---|
+|Delegated (work or school account)|**TODO: Determine scopes **|
+|Delegated (personal Microsoft account)|Not supported.|
+|Application|Not supported.|
 
 ## HTTP Request
 <!-- {
   "blockType": "ignored"
 }
 -->
-```http
-PATCH /managedDevices/{managedDevicesId}/deviceConfigurationStates/{deviceConfigurationStateId}
+``` http
+PATCH /deviceManagement/managedDevices/{managedDeviceId}/deviceConfigurationStates/{deviceConfigurationStateId}
 ```
 
 ## Request headers
 |Header|Value|
-|---|---|
+|:---|:---|
 |Authorization|Bearer &lt;token&gt; Required.|
 |Accept|application/json|
 
 ## Request body
-In the request body, supply a JSON representation of a [deviceConfigurationState](../resources/intune_deviceconfig_deviceconfigurationstate.md) object.
-The following table shows the properties that are required when you create a [deviceConfigurationState](../resources/intune_deviceconfig_deviceconfigurationstate.md).
+In the request body, supply a JSON representation for the [deviceConfigurationState](../resources/intune_deviceconfig_deviceconfigurationstate.md) object.
+
+The following table shows the properties that are required when you create the [deviceConfigurationState](../resources/intune_deviceconfig_deviceconfigurationstate.md).
 
 |Property|Type|Description|
-|---|---|---|
+|:---|:---|:---|
 |id|String|Key of the entity.|
-|settingStates|[deviceConfigurationSettingState](../resources/intune_deviceconfig_deviceconfigurationsettingstate.md) collection|Not yet documented|
+|settingStates|[deviceConfigurationSettingState](../resources/intune_deviceconfig_deviceconfigurationsettingstate.md) collection|**TODO: Add description.**|
 |displayName|String|The name of the policy for this policyBase|
 |version|Int32|The version of the policy|
-|platformType|String|Platform type that the policy applies to Possible values are: `android`, `androidForWork`, `iOS`, `macOS`, `windowsPhone81`, `windows81AndLater`, `windows10AndLater`, `all`.|
-|state|String|The compliance state of the policy Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
+|platformType|[policyPlatformType](../resources/intune_deviceconfig_policyplatformtype.md)|Platform type that the policy applies to. Possible values are: `android`, `androidForWork`, `iOS`, `macOS`, `windowsPhone81`, `windows81AndLater`, `windows10AndLater`, `androidWorkProfile`, `all`.|
+|state|[complianceStatus](../resources/intune_shared_compliancestatus.md)|The compliance state of the policy. Possible values are: `unknown`, `notApplicable`, `compliant`, `remediated`, `nonCompliant`, `error`, `conflict`.|
 |settingCount|Int32|Count of how many setting a policy holds|
+|userId|String|User unique identifier, must be Guid|
+|userPrincipalName|String|User Principal Name|
+
+
 
 ## Response
 If successful, this method returns a `200 OK` response code and an updated [deviceConfigurationState](../resources/intune_deviceconfig_deviceconfigurationstate.md) object in the response body.
@@ -49,10 +54,10 @@ If successful, this method returns a `200 OK` response code and an updated [devi
 ## Example
 ### Request
 Here is an example of the request.
-```http
-PATCH https://graph.microsoft.com/beta/managedDevices/{managedDevicesId}/deviceConfigurationStates/{deviceConfigurationStateId}
+``` http
+PATCH https://graph.microsoft.com/beta/deviceManagement/managedDevices/{managedDeviceId}/deviceConfigurationStates/{deviceConfigurationStateId}
 Content-type: application/json
-Content-length: 915
+Content-length: 998
 
 {
   "settingStates": [
@@ -82,16 +87,18 @@ Content-length: 915
   "version": 7,
   "platformType": "androidForWork",
   "state": "notApplicable",
-  "settingCount": 12
+  "settingCount": 12,
+  "userId": "User Id value",
+  "userPrincipalName": "User Principal Name value"
 }
 ```
 
 ### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
-```http
+``` http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1027
+Content-Length: 1110
 
 {
   "@odata.type": "#microsoft.graph.deviceConfigurationState",
@@ -123,9 +130,10 @@ Content-Length: 1027
   "version": 7,
   "platformType": "androidForWork",
   "state": "notApplicable",
-  "settingCount": 12
+  "settingCount": 12,
+  "userId": "User Id value",
+  "userPrincipalName": "User Principal Name value"
 }
 ```
-
 
 

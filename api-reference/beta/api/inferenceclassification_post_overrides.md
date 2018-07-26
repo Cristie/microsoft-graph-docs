@@ -37,7 +37,7 @@ In the request body, supply a JSON representation of [inferenceClassificationOve
 
 ## Response
 
-If successful, this method returns `201, Created` response code and an [inferenceClassificationOverride](../resources/inferenceclassificationoverride.md) object in the response body.
+If successful, this method returns `201 Created` response code and an [inferenceClassificationOverride](../resources/inferenceclassificationoverride.md) object in the response body.
 
 ## Example
 ##### Request
@@ -53,8 +53,8 @@ Content-type: application/json
 {
   "classifyAs": "focused",
   "senderEmailAddress": {
-    "name": "Fanny Downs",
-    "address": "fannyd@adatum.onmicrosoft.com"
+    "name": "Samantha Booth",
+    "address": "samanthab@adatum.onmicrosoft.com"
   }
 }
 ```
@@ -73,8 +73,8 @@ Content-type: application/json
 {
   "classifyAs": "focused",
   "senderEmailAddress": {
-    "name": "Fanny Downs",
-    "address": "fannyd@adatum.onmicrosoft.com"
+    "name": "Samantha Booth",
+    "address": "samanthab@adatum.onmicrosoft.com"
   },
   "id": "98f5bdef-576a-404d-a2ea-07a3cf11a9b9"
 }

@@ -50,7 +50,7 @@ The following example gets MailTips for the specified recipients, for any automa
   "name": "user_getmailtips"
 }-->
 ```http
-POST https://graph.microsoft.com/api/beta/me/getMailTips
+POST https://graph.microsoft.com/beta/me/getMailTips
 Content-Type: application/json
 
 {
@@ -74,7 +74,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 {
-    "@odata.context":"https://graph.microsoft.com/api/beta/$metadata#Collection(microsoft.graph.mailTips)",
+    "@odata.context":"https://graph.microsoft.com/beta/$metadata#Collection(microsoft.graph.mailTips)",
     "value":[
         {
             "emailAddress":{

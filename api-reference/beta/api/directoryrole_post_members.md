@@ -15,7 +15,7 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /directoryRoles/{id}/members
+POST /directoryRoles/{id}/members/$ref
 
 ```
 ## Request headers
@@ -28,7 +28,7 @@ In the request body, supply a JSON representation of [directoryObject](../resour
 
 ## Response
 
-If successful, this method returns `201, Created` response code and [directoryObject](../resources/directoryobject.md) object in the response body.
+If successful, this method returns `201 Created` response code and [directoryObject](../resources/directoryobject.md) object in the response body.
 
 ## Example
 ##### Request
@@ -38,7 +38,7 @@ Here is an example of the request.
   "name": "create_directoryobject_from_directoryrole"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/directoryRoles/{id}/members
+POST https://graph.microsoft.com/beta/directoryRoles/{id}/members/$ref
 Content-type: application/json
 Content-length: 30
 

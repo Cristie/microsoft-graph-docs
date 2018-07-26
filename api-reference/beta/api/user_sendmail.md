@@ -41,11 +41,11 @@ In the request body, provide a JSON object with the following parameters.
 If you want to use **mention** to call out another user in the new message:
 
 - Include the required **toRecipients** property, the **mentions** property, and any writable message properties in the request body.
-- For each mention in the **mentions** property, you must specify the **mentioned** and **createdBy** properties.
+- For each mention in the **mentions** property, you must specify the **mentioned** property.
 
 ## Response
 
-If successful, this method returns `202, Accepted` response code. It does not return anything in the response body.
+If successful, this method returns `202 Accepted` response code. It does not return anything in the response body.
 
 ## Example
 Here is an example of how to call this API.
@@ -70,7 +70,7 @@ Content-length: 512
     "toRecipients": [
       {
         "emailAddress": {
-          "address": "fannyd@contoso.onmicrosoft.com"
+          "address": "samanthab@contoso.onmicrosoft.com"
         }
       }
     ],
@@ -98,7 +98,7 @@ HTTP/1.1 202 Accepted
 
 
 ##### Request 2
-The next example includes a mention of another user Dana Swope in the draft.
+The next example shows a message by the signed-in user to Samantha Booth. The message also includes a mention of another user, Dana Swope.
 <!-- {
   "blockType": "request",
   "name": "user_sendmail_with_mentions"
@@ -114,8 +114,8 @@ Content-length: 344
     "toRecipients":[
       {
           "emailAddress":{
-              "name":"Fanny Downs",
-              "address":"fannyd@contoso.onmicrosoft.com"
+              "name":"Samantha Booth",
+              "address":"samanthab@contoso.onmicrosoft.com"
           }
       }
     ],
@@ -124,11 +124,7 @@ Content-length: 344
         "mentioned":{
           "name":"Dana Swope",
           "address":"danas@contoso.onmicrosoft.com"
-         },
-        "createdBy": {
-            "name":"Randi Welch",
-            "address":"randiw@contoso.onmicrosoft.com"
-        }
+         }
       }
     ]
   }

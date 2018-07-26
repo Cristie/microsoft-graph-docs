@@ -13,7 +13,7 @@ One of the following permissions is required to call this API. To learn more, in
 |:--------------------|:---------------------------------------------------------|
 |Delegated (work or school account) | Directory.Read.All, Directory.ReadWrite.All, Directory.AccessAsUser.All    |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Directory.Read.All, Directory.ReadWrite.All |
+|Application | Application.ReadWrite.All, Directory.Read.All |
 
 ## HTTP request
 
@@ -55,7 +55,7 @@ Note: The response object shown here may be truncated for brevity. All of the pr
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.servicePrincipal",
+  "@odata.type": "microsoft.graph.serviceprincipal",
   "isCollection": true
 } -->
 ```http

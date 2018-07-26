@@ -4,13 +4,13 @@ An aggregation of information about a person from across mail, contacts, and soc
 
 ## Methods
 
-| Method		   | Return Type	|Description|
+| Method | Return Type | Description |
 |:---------------|:--------|:----------|
 |[List people](../api/user_list_people.md) | **person** |Get a collection of person objects ordered by their relevance to the [user](../resources/user.md).|
-|[Get person](../api/person_get.md) | **person** |Get properties and relationships of a person object.|
 
 ## Properties
-| Property	   | Type	|Description|
+
+| Property | Type | Description |
 |:---------------|:--------|:----------|
 |birthday|String|The person's birthday.|
 |companyName|String|The name of the person's company.|
@@ -19,11 +19,11 @@ An aggregation of information about a person from across mail, contacts, and soc
 |scoredEmailAddresses|[scoredEmailAddress](scoredemailaddress.md) collection|The person's email addresses.|
 |givenName|String|The person's given name.|
 |id|String|The person's unique identifier. Read-only.|
-|imAddress|String collection|The instant message voice over IP (VOIP) session initiation protocol (SIP) address for the user. Read-only.|
+|imAddress|String|The instant message voice over IP (VOIP) session initiation protocol (SIP) address for the user. Read-only.|
 |isFavorite|Boolean|`true` if the user has flagged this person as a favorite.|
 |jobTitle|String|The person's job title.|
 |officeLocation|String|The location of the person's office.|
-|personNotes|String|Free-form notes that the the user has taken about this person.|
+|personNotes|String|Free-form notes that the user has taken about this person.|
 |personType|[personType](persontype.md) collection|The type of person.|
 |phones|[phone](phone.md) collection|The person's phone numbers.|
 |postalAddresses|[location](location.md) collection|The person's addresses.|
@@ -34,8 +34,8 @@ An aggregation of information about a person from across mail, contacts, and soc
 |yomiCompany|String|The phonetic Japanese name of the person's company.|
 
 ## Relationships
-None.
 
+None.
 
 ## JSON representation
 
@@ -55,14 +55,15 @@ The following is a JSON representation of the resource.
   "companyName": "string",
   "department": "string",
   "displayName": "string",
-  "scoredEmailAddresses": [{"@odata.type": "microsoft.graph.scoredemailaddress"}],
+  "scoredEmailAddresses": [{"@odata.type": "microsoft.graph.scoredEmailAddress"}],
   "givenName": "string",
   "id": "string (identifier)",
+  "imAddress": "string",
   "isFavorite": true,
   "jobTitle": "string",
   "officeLocation": "string",
   "personNotes": "string",
-  "personType": [{"@odata.type": "microsoft.graph.persontype"}],
+  "personType": {"@odata.type": "microsoft.graph.personType"},
   "phones": [{"@odata.type": "microsoft.graph.phone"}],
   "postalAddresses": [{"@odata.type": "microsoft.graph.location"}],
   "profession": "string",

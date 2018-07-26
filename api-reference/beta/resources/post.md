@@ -40,6 +40,7 @@ Here is a JSON representation of the resource
   "from": {"@odata.type": "microsoft.graph.recipient"},
   "hasAttachments": true,
   "id": "string (identifier)",
+  "importance": "string",
   "lastModifiedDateTime": "String (timestamp)",
   "newParticipants": [{"@odata.type": "microsoft.graph.recipient"}],
   "receivedDateTime": "String (timestamp)",
@@ -51,7 +52,7 @@ Here is a JSON representation of the resource
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
 |body|[itemBody](itembody.md)|The contents of the post. This is a default property. This property can be null.|
-|categories|String collection|The categories associated with the post.|
+|categories|String collection|The categories associated with the post. Each category corresponds to the **displayName** property of an [outlookCategory](outlookcategory.md) that has been defined for a user.|
 |changeKey|String|Identifies the version of the post. Every time the post is changed, ChangeKey changes as well. This allows Exchange to apply changes to the correct version of the object.|
 |conversationId|String|Unique ID of the conversation. Read-only.|
 |conversationThreadId|String|Unique ID of the conversation thread. Read-only.|
@@ -59,6 +60,7 @@ Here is a JSON representation of the resource
 |from|[recipient](recipient.md)|Used in delegate access scenarios. Indicates who posted the message on behalf of another user. This is a default property.|
 |hasAttachments|Boolean|Indicates whether the post has at least one attachment. This is a default property.|
 |id|String| Read-only.|
+|importance | String | The importance of a group post: `low`, `normal`, `high`. |
 |lastModifiedDateTime|DateTimeOffset|Specifies when the post was last modified. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
 |newParticipants|[recipient](recipient.md) collection|Conversation participants that were added to the thread as part of this post.|
 |receivedDateTime|DateTimeOffset|Specifies when the post was received. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|

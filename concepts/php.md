@@ -6,14 +6,14 @@ To use Microsoft Graph in your PHP app, you need to show the Microsoft sign in p
 
 ![Sign in page for Microsoft accounts](images/MicrosoftSignIn.png)
 
-**Don't feel like building an app?** Get up and running fast by downloading the [Connect Sample for PHP (REST)](https://github.com/microsoftgraph/php-connect-rest-sample) that this article is based on. Or try out the [Connect Sample for PHP (SDK)](https://github.com/microsoftgraph/php-connect-sample) version that uses the [Microsoft Graph Library for PHP](https://github.com/microsoftgraph/msgraph-sdk-php) (Preview).
+**Don't feel like building an app?** Get up and running fast by downloading the [Connect Sample for PHP (REST)](https://github.com/microsoftgraph/php-connect-rest-sample) that this article is based on. Or try out the [Connect Sample for PHP (SDK)](https://github.com/microsoftgraph/php-connect-sample) version that uses the [Microsoft Graph Library for PHP](https://github.com/microsoftgraph/msgraph-sdk-php).
 
 
 ## Prerequisites
 
 To get started, you'll need: 
 
-- A [Microsoft account](https://www.outlook.com/) or a [work or school account](http://dev.office.com/devprogram)
+- A [Microsoft account](https://www.outlook.com/) or a [work or school account](https://docs.microsoft.com/en-us/office/developer-program/office-365-developer-program-faq#account-types)
 - PHP version 5.5.9 or greater
 - [Composer](https://getcomposer.org/)
 
@@ -83,7 +83,7 @@ composer update
     
 3. Add an */oauth* route to the **app** > **Http** > **routes.php** file. To add the route, copy the following code after the default route declaration. Insert the **application ID** and **password** of your app in the placeholder marked with **\<YOUR_APPLICATION_ID\>** and **\<YOUR_PASSWORD\>** respectively.
     ```php
-    Route::get('/oauth', function () {
+    Route::get('/oauth', function (Request $request) {
         $provider = new \League\OAuth2\Client\Provider\GenericProvider([
             'clientId'                => '<YOUR_APPLICATION_ID>',
             'clientSecret'            => '<YOUR_PASSWORD>',
